@@ -11,7 +11,7 @@ def cohend(pop1, pop2):
     return diff / math.sqrt((n1 * var1 + n2 * var2) / (n1 + n2) )
 ```
 
-We filter for live births by checking the value of outcome.  Then we compare the first live birth to all the other live births total weight in lbs (totalwgt_lb).  This field is derived by adding birthwgt_oz converted to lbs to birthwgt_lbs.  The effect size on totalwgt_lb appears to be very small, well under the standard deviations of both populations.
+We filter for live births by checking the value of outcome.  Then we compare the first live birth to all the other live births total weight in lbs (totalwgt_lb).  This field is derived by adding birthwgt_oz converted to lbs to birthwgt_lbs.  The effect size of birthorder on totalwgt_lb appears to be very small, well under the standard deviations of both populations.
 
 ```python
 import nsfg
