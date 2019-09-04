@@ -34,3 +34,21 @@ thinkplot.PrePlot(2)
 thinkplot.Pmfs([pmf, biased_pmf])
 thinkplot.Config(xlabel='Family Size', ylabel='PMF')
 ```
+
+We can then compute the mean of the actual pmf by summing the product of the family size x with the probability of having that family size.
+
+```python
+mean_pmf = 0
+for x, p in pmf.Items():
+    mean_pmf += x * p
+print(mean_pmf)
+
+1.024205155043831
+```
+
+We can do the same for the biased pmf.  Our results are skewed towards having children because the probability of having zero children is biased at zero.
+
+```python
+print(biased_pmf.Mean())
+2.403679100664282
+```
