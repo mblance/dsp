@@ -31,14 +31,17 @@ cdf.Prob(sample.mean())
 0.660005879566872
 ```
 
-If we cut off the earners at 10 million (log10 x == 7) and re run our numbers we get an even larger skew effect, with the median staying the same and the mean skyrocketing.  We see that 85% of the earners are now below the mean.
+If we cut off the earners at 10 million (log10 x == 7) and re run our numbers we get an even larger skew effect, with the median staying the same and the mean skyrocketing.  We see that 85% of the earners are now below the mean.  Our PearsonMedianSkewness goes down here even though we are more right skewed.  This is due to the effect of the increased variance from the bounds increase because Pearson is inversely correlated to the variance.
 
 ```python
 log_sample = InterpolateSample(income_df, log_upper=7.0)
 sample = np.power(10, log_sample)
 
-Median(sample), sample.mean(), PearsonMedianSkewness(sample)
-(51226.45447894046, 124267.39722164703, 0.39156450927742104)
+Median(sample), sample.mean(), PearsonMedianSkewness(sample), Skewness(sample)
+(51226.45447894046,
+ 124267.39722164703,
+ 0.39156450927742104,
+ 11.603690267537795)
 
 cdf.Prob(sample.mean())
 0.8565630665207663
