@@ -34,6 +34,9 @@ cdf.Prob(sample.mean())
 If we cut off the earners at 10 million (log10 x == 7) and re run our numbers we get an even larger skew effect, with the median staying the same and the mean skyrocketing.  We see that 85% of the earners are now below the mean.
 
 ```python
+log_sample = InterpolateSample(income_df, log_upper=7.0)
+sample = np.power(10, log_sample)
+
 Median(sample), sample.mean(), PearsonMedianSkewness(sample)
 (51226.45447894046, 124267.39722164703, 0.39156450927742104)
 
