@@ -35,7 +35,7 @@ thinkplot.Pmfs([pmf, biased_pmf])
 thinkplot.Config(xlabel='Family Size', ylabel='PMF')
 ```
 
-We can then compute the mean of the actual pmf by summing the product of the family size x with the probability of having that family size.
+We can then compute the mean of the actual pmf by summing the product of the family size x with the probability of having that family size.  This shows that families have about one child on average.
 
 ```python
 mean_pmf = 0
