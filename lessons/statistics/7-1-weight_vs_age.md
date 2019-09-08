@@ -26,16 +26,18 @@ bins = np.arange(15, 41, 5)
 indices = np.digitize(age, bins)
 groups = live.groupby(indices)
 
-mean_heights = [group.agepreg.mean() for i, group in groups]
+mean_age = [group.agepreg.mean() for i, group in groups]
 cdfs = [thinkstats2.Cdf(group.totalwgt_lb) for i, group in groups]
 
 for percent in [75, 50, 25]:
     weight_percentiles = [cdf.Percentile(percent) for cdf in cdfs]
     label = '%dth' % percent
-    thinkplot.Plot(mean_heights, weight_percentiles, label=label)
+    thinkplot.Plot(mean_age, weight_percentiles, label=label)
     
 thinkplot.Config(xlabel='Mothers Age',
                  ylabel='Weight',
                  axis=[14, 40, 2, 13],
                  legend=True)
 ```
+
+The effect of binning the data creates more discrete data lines at the cost of precision.  Our PDF becomes a PMF as age and weight are categorized and means are calculated across the data points.  Each percentile y value can be thought of as a mean in that percentile, with three lines showing three different means.  There is overlap with the higher percentiles in the 25th for example, which brings the mean up closer to the other data points.
