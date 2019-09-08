@@ -1,6 +1,6 @@
 [Think Stats Chapter 7 Exercise 1](http://greenteapress.com/thinkstats2/html/thinkstats2008.html#toc70) (weight vs. age)
 
-We extract the age and birthweight from the live birth dataset.  Age vs weight is plotted, with outliers trimmed on the axis.  We set an alpha=0.12 so we can more accurately see the spread of the data, which is helping some.
+We extract the age and birthweight from the live birth dataset.  Age vs weight is plotted, with outliers trimmed on the axis.  Mothers under the age of 14 are extreme outliers, as are birth weights under 2 lbs and over 14 lbs. We set an alpha=0.12 so we can more accurately see the spread of the data, which is helping some.
 
 ```python
 age, birthweight = live['agepreg'], live['totalwgt_lb']
@@ -19,7 +19,7 @@ age.corr(birthweight, method='spearman'), age.corr(birthweight, method='pearson'
 (0.09461004109658226, 0.0688339703541091)
 ```
 
-Our data visualization here has limitations, we can't fully grasp the spread of the data.  By categorizing age into bins and calculating the mean of the bin, then plotting that vs the percentiles from the cdf of the birth weight, we can see where most of our data is concentrated.
+Our data visualization here has limitations, we can't fully grasp the spread of the data.  By categorizing age into bins and calculating the mean of the bin, then plotting that vs the percentiles from the cdf of the birth weight, we can see where most of our data is concentrated.  Taking both graphs together, as we approach age 40 the quantity of data decreases and the number of outliers increases.  For further experimentation, we can view data in only the bulk of the dataset (women under 35 or so) and see if the quality of our correlation is better, IE with fewer outliers.
 
 ```python
 bins = np.arange(15, 41, 5)
