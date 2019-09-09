@@ -38,7 +38,7 @@ rmse L 1.0177622512158722
 mean error L 0.0020000000000000035
 ```
 
-As we increase the number of games to 100 our RMSE and mean error approach zero.  We can say that this selection is unbiased.
+As we increase the number of games to 200 our RMSE and mean error approach zero.  We can say that this selection is unbiased.
 
 ```python
 RunSimulation(games=200, iter=1000)
